@@ -1,0 +1,17 @@
+{
+  "name": "dst-transition-finder-lib",
+  "version": "0.1.0",
+  "description": "Gets DST start and end datetimes for an IANA timezone and year, with transition direction.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
