@@ -44,3 +44,10 @@ An alias for `getOffsetMinutes`, kept for callers who prefer the longer name.
 A transition is identified by a change in the numeric offset. Zones that change their standard-time offset without changing DST status, or zones that change their abbreviation without changing the offset, will not produce a transition here. That is deliberate: the numeric offset is what affects the wall clock, and it is the only thing every host reports consistently. If you need to detect abbreviation changes, this library is not the right tool.
 
 Zone rules are taken from the host runtime. A host with an outdated tzdata will report outdated transitions. This is the same contract as `Intl.DateTimeFormat` itself.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
